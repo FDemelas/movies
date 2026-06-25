@@ -32,8 +32,6 @@ echo "\n\n Training the model\n\n"
 
 python3 train.py                    # entraînement complet
 
-#python3 train.py --epochs 5         # test rapide
-
 echo "\n\n Evaluation\n\n"
 
 python3 train.py --eval             # rapport par genre
