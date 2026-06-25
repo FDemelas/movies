@@ -84,15 +84,13 @@ Les directives SBATCH utilisées :
 
 | Directive | Valeur | Description |
 |-----------|--------|-------------|
-| `--cpus-per-task` | 4 | Nombre de cœurs CPU |
+| `--cpus-per-task` | 1 | Nombre de cœurs CPU |
 | `--ntasks` | 1 | Une seule tâche |
 | `--gres` | `gpu:1` | 1 GPU |
 | `--qos` | `qos_gpu_t4` | Qualité de service GPU T4 |
 | `--time` | `04:00:00` | Durée maximale du job |
-| `--output` | `logs/output_%j.txt` | Logs de sortie (remplace `%j` par le job ID) |
-| `--error` | `logs/error_%j.txt` | Logs d'erreur |
-
-> **Note :** Les modules chargés (`python/3.11.5`, `cuda/12.1.0`) sont à adapter selon la configuration de votre cluster.
+| `--output` | `./logs/Output_movies.txt` | Logs de sortie (remplace `%j` par le job ID) |
+| `--error` | `./logs/Error_movies.txt` | Logs d'erreur |
 
 ### Commandes Slurm utiles
 
