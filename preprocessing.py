@@ -105,17 +105,17 @@ def download_all_images(df: pd.DataFrame) -> pd.DataFrame:
 def load_existing_images(df: pd.DataFrame) -> pd.DataFrame:
     """Reconstruit les chemins sans re-télécharger."""
     paths, flags = [], []
-    for idx in df.index:
+    for idx, row in df.iterrows():          # idx = index original du CSV
         dest   = IMAGES_DIR / f"{idx:05d}.jpg"
         exists = dest.exists()
         paths.append(str(dest) if exists else None)
         flags.append(exists)
+    df = df.copy()
     df["image_path"] = paths
     df["image_ok"]   = flags
     n_ok = sum(flags)
     log.info(f"Images trouvées : {n_ok}/{len(df)} ({n_ok/len(df)*100:.1f}%)")
     return df[df["image_ok"]].reset_index(drop=True)
-
 
 # ──────────────────────────────────────────────
 # ÉTAPE 3 : Labels
@@ -179,8 +179,10 @@ def main():
     df = load_and_clean(CSV_PATH)
 
     # Commenter/décommenter selon le besoin :
-    # df = download_all_images(df)   # premier lancement
-    df = load_existing_images(df)    # images déjà téléchargées
+    if IMAGES_DIR.exists() and any(IMAGES_DIR.iterdir()):
+        df = load_existing_images(df)   # dossier déjà peuplé
+    else:
+        df = download_all_images(df)    # premier lancement
 
     labels, mlb = binarize_labels(df)
 
