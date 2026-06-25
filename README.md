@@ -88,7 +88,6 @@ Les directives SBATCH utilisées :
 | `--ntasks` | 1 | Une seule tâche |
 | `--gres` | `gpu:1` | 1 GPU |
 | `--qos` | `qos_gpu_t4` | Qualité de service GPU T4 |
-| `--time` | `04:00:00` | Durée maximale du job |
 | `--output` | `./logs/Output_movies.txt` | Logs de sortie (remplace `%j` par le job ID) |
 | `--error` | `./logs/Error_movies.txt` | Logs d'erreur |
 
