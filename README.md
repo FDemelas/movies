@@ -10,12 +10,12 @@ python3 preprocessing.py
 
 Train the model
 ```python
-python3 train.py                    # entraînement complet
+python3 train.py 
 ```
 
 Evaluate the model and print all the results:
 ```python
-python3 train.py --eval             # rapport par genre
+python3 train.py --eval
 ```
 
 Plot 4 figures summarizing the resullts:
