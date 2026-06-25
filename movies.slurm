@@ -7,8 +7,8 @@
 #SBATCH --ntasks=1 
 #SBATCH --gres=gpu:1       
 #SBATCH --qos=qos_gpu_t4        
-#SBATCH --output=./Output_movies.txt    
-#SBATCH --error=./Error_movies.txt 
+#SBATCH --output=./logs/Output_movies.txt    
+#SBATCH --error=./logs/Error_movies.txt 
 
 echo "\n\n Installing Requirement \n\n"
 
